@@ -53,7 +53,7 @@ Access at `http://127.0.0.1:8000/admin/` using the superuser credentials
 ## Project Preview Images
 
 ##### Landing page
-![Main page](preview_images_of_project/main_page.png)
+![Main page](preview_images_of_project/Main_page.png)
 
 ##### User login page
 ![Main page](preview_images_of_project/user_login_page.png)
