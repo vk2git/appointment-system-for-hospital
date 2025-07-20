@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rising Hospital</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_home.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Catamaran:wght@200&family=Courgette&family=Dancing+Script:wght@700&family=Edu+TAS+Beginner:wght@700&family=Lato:wght@300;900&family=Mukta:wght@700&family=Mulish:wght@300&family=Open+Sans&family=PT+Sans:ital,wght@1,700&family=Poppins:wght@300&family=Raleway:wght@100&family=Roboto&family=Roboto+Condensed:wght@700&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f30fac2c61.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <button class="refreshButton" style="background-color: transparent;border: none;color: white;font-size: 20px;"><h1>Rising🏥</h1></button>
+            </div>
+            <i id="bar" class="fa-solid fa-bars"></i>
+            <ul style="scroll-behavior: smooth;margin-right: 50px;">
+                <li><a href="{% url 'user_login' %}">Book Appointment</a></li>
+                <li><a href="{% url 'doctor_login' %}">Doctor Login</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#doctor">Doctor</a></li>
+                <li><a href="#speciality">Speciality</a></li>
+                <li><a href="#Diagnostic">Diagnostic Service</a></li>
+                <li><a href="#contact">Contact us</a></li>
+            </ul>
+        </nav>
+        <div id="page1" class="main">
+            <div class="mainText">
+                <h1>Rising Hospital & <br> HCC</h1>
+                <h3>Mother and Child care centre</h3>
+                <button style="border-radius: 1rem;" class="knowbutton"><a style="color: white;text-decoration: none;" href="#about">Know us</a></button>
+            </div>
+            <img src="{% static 'images/mains.png' %}" alt="" style="margin-top: 50px; width: 50%;">
+        </div>
+        <div id="about">
+            <div class="head">
+                <h1>About Us</h1>
+            </div>
+            <div class="speciality">
+                <div class="spCard" style="width: 800px;margin-right: 50px;padding-left: 30px;">
+                    <p class="aboutushead" >In a Nutshell</p>
+                    <p style="margin-top: 11%;font-size: 20px;font-size: 24px;">Rising Hospital is a leading healthcare center providing exceptional care for mothers and children. Our skilled professionals offer comprehensive prenatal, postnatal, and pediatric services. We prioritize health and well-being, striving to create a safe and nurturing environment. Our goal is to ensure overall well-being, providing top-notch care with compassion and dedication. We support families at every stage of life, aiming to make every experience with us positive and memorable. With a focus on exceptional care, we are dedicated to making a difference in the lives of our patients.                    </p>
+                </div>
+                <div class="spCard" style="width: 500px;margin-left: 3rem;background: none;">
+                    <img src="{% static 'images/image2.png' %}" alt="" style="height: rem;width: 100%;border-radius: 10px;">
+                </div>
+            </div>
+        </div>
+        <div id="doctor">
+            <div class="head">
+                <h1 style="margin-top: 50px;">Our Doctors</h1>
+            </div>
+            <div class="teams">
+                <div class="card" style="width: 500px;height: 700px;">
+                    <img src="{% static '/images/image5-d2.png' %}" alt="" style="height: 28rem;">
+                    <p style="margin-top: 20px;text-align: center;font-size: 23px;">Dr. Pari, MBBS <br>Child Specialist &<br>Pediatrician</p>
+                    <p style="text-align: center;font-size: large;margin-top: 40px;">Specialized in the comprehensive healthcare of infants, children, and adolescents. With a focus on preventive care and early diagnosis, he is committed to promoting healthy development and managing common childhood illnesses.
+                    </p>
+                </div>
+                <div class="card" style="width: 500px;height: 700px;">
+                    <img src="{% static '/images/image5-d2.png' %}" alt="" style="height: 28rem;">
+                    <p style="margin-top: 20px;text-align: center;font-size: 23px;">Dr. Venkat Ramakrishna, MBBS<br>Pediatric Subspecialist</p>
+                    <p style="text-align: center;font-size: large;margin-top: 40px;">A renowned pediatric subspecialist in pediatric cardiology, focusing on diagnosing and treating heart conditions in children. With advanced training and expertise, he collaborates with families to create tailored treatment plans that prioritize the well-being of his young patients.
+                    </p>
+                </div>
+                <div class="card" style="width: 500px;height: 700px;">
+                    <img src="{% static '/images/image5-d2.png' %}" alt="" style="height: 28rem;">
+                    <p style="margin-top: 20px;text-align: center;font-size: 23px;">Dr. Sevarkodi Senthil, MBBS <br>Consultant Pediatrician</p>
+                    <p style="text-align: center;font-size: large;margin-top: 40px;">"As a consultant pediatrician,he provides expert guidance and management for complex pediatric cases, often collaborating with multidisciplinary teams. His extensive experience in both clinical practice and medical education allows him to mentor upcoming pediatricians while ensuring the highest standards of care for his patients.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="speciality">
+            <div class="head">
+                <h1>Our Speciality's</h1>
+            </div>
+            <div class="speciality">
+                <div class="spCard" style="width: 400px;">
+                    <img src="{% static 'images/Lab Diagnostic Center.jpg' %}" alt=""><p style="font-size: 33px;">Lab Diagnostic Center</p>
+                    <p style="font-size: large;line-height: 26px;">Our state-of-the-art laboratory is equipped with the latest technology and staffed by experienced professionals. This ensures accurate and reliable test results, providing you with a clear understanding of your health. We offer a wide range of diagnostic services, from routine check-ups to specialized tests. Our comprehensive services enable you to take control of your health, make informed decisions, and receive the best possible care. Our goal is to support your overall well-being.</p>
+                </div>
+                <div class="spCard" style="width: 400px;">
+                    <img src="{% static 'images/Pharmacy.png' %}" alt=""><p style="font-size: 33px;">Integrated Pharmacy</p>
+                    <p style="font-size: large;line-height: 26px;">Our integrated pharmacy combines retail services with clinical expertise, providing a comprehensive approach to health and wellness. We offer prescription medications, health supplements, expert advice, and personalized care. Our dedicated team is committed to supporting you every step of the way, ensuring you receive the best possible care. From routine health needs to specialized requirements, we're here to help you achieve optimal wellness.</p>
+                </div>
+                <div class="spCard"style="width: 400px;">
+                    <img src="{% static '/images/Pregnancy Care.png' %}" alt=""><p style="font-size: 33px;">Pregnancy Care</p>
+                    <p style="font-size: large;line-height: 26px;">At Rising Hospital, we provide comprehensive pregnancy care tailored to each woman's unique needs. Our experienced obstetricians offer prenatal check-ups, ultrasounds, and guidance on healthy pregnancy habits. We also provide specialized care for high-risk pregnancies and support for expectant mothers with pre-existing medical conditions. Our goal is to ensure a healthy and happy pregnancy, empowering women to make informed decisions about their care and preparing them for a smooth transition to motherhood.</p>
+                </div>
+                
+            </div>
+        </div>
+        <div id="Diagnostic">
+            <div class="head">
+                <h1>Diagnostic Services offerred</h1>
+            </div>
+            <div class="speciality">
+                <div class="spCard" style="width: 500px;background: none;">
+                    <img src="{% static 'images/image3.png' %}" alt="" style="height: 560px;width: 100%;">
+                </div>
+                <div class="spCard" style="width: 800px;">
+                    <p class="aboutushead" style="font-size: 33px;margin-right: 20%;margin-left: 20%;padding-top: 10px;padding-bottom: 10px;">Tests Offerred :</p>
+                    <p style="font-size: large;line-height: 36px;">Complete blood count <br> ESR<br>Malaria  parasite<br>Dengue  profile<br>Typhoid serology<br>Urine routine<br>Vitamin - D3<br>Vitamin - B12<br>Thyroid function test<br>Fasting blood sugar<br>Post prandial blood sugar<br>Liver function test<br>Renal function test<br>And more...📃</p>
+                </div> 
+            </div>
+        </div>
+        <div id="contact">
+            <div class="head">
+                <h1>Contact Details</h1s>
+            </div>
+            <div class="speciality">
+                <div class="spCard">
+                    <p>Get an appointment, free of cost, no more waiting in queue</p>
+                    <div style="padding: 5%;margin: 15%;">
+                    <a style="background-color:#004aad;color: white;border-top-left-radius: 15%;padding: 10%;border-top-right-radius: 15%;border-bottom-left-radius: 15%;border-bottom-right-radius: 15%;" href="{% url 'user_login' %}">Book Appointment</a>
+                    </div>
+                </div>
+                
+                <div class="spCard">
+                    <p style="font-size: 30px;text-align: center;margin-top: 10%;">Phone Number</p>
+                <p>080-567890900</p><p>080-1234567</p><p>+91 401928374</p>
+                </div>  
+                
+            </div>
+        </div>
+        <div style="margin-top: 50px;margin-left: 47%;font-size: larger;" class="back">
+            <a style="text-decoration: none;color: white;background-color: #72aaf2;padding: 10px;border-radius: 2rem;" href="#page1">Back to Top</a>
+        </div>
+        <div class="footer" style="background-color: #004aad;">
+            <div class="text">
+                <h3 style="font-size: 30px;">Why Us ?</h3><p>24 Hours availability</p><p>Experienced Doctor</p><p>Integrated Pharmacy</p><p>Lab Diagnostic Center</p>
+            </div>
+            <div class="text">
+                <h3 style="font-size: 30px;">Speciality</h3><p>General Consultantion</p><p>Mother Care</p><p>Child Care</p><p>Pregnancy Care</p>
+            </div>
+            <div class="text">
+                <h3 style="font-size: 30px;">Best Teams</h3><p>Doctors</p><p>Nursing</p><p>Staff</p><p>Hospital</p>
+            </div>
+            <div class="text">
+                <h3 style="font-size: 30px;">Address</h3><p>24, ABC layout,</p><p>Kannada Nagar,</p><p>Bengaluru</p><p>Karnataka-560001</p>
+            </div>
+        </div>
+        <div class="detail"><button id="closeBtn"><i class="fa-solid fa-xmark"></i></button></div>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

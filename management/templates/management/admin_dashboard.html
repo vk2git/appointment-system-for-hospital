@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head><title>Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_admin_dashboard.css' %}">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <div class="manage">
+        <div class="add"><h3>Add Doctor</h3>
+            <form method="post">
+                {% csrf_token %}
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" required><br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required><br>
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name" id="first_name" required><br>
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name" id="last_name" required><br>
+                <label for="specialization">Specialization:</label>
+                <input type="text" name="specialization" id="specialization" required><br>
+                <button type="submit" name="add_doctor">Add Doctor</button>
+            </form></div>
+        <div class="doctors">
+            <h3>Doctors</h3>{% if doctors %}
+                <ul>{% for doctor in doctors %}
+                    <li>Dr. {{ doctor.user.first_name }} {{ doctor.user.last_name }} ({{ doctor.specialization }})
+                        <form method="post" style="display: inline;">{% csrf_token %}
+                            <input type="hidden" name="doctor_id" value="{{ doctor.id }}">
+                            <button type="submit" name="delete_doctor">Delete</button>
+                        </form>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}<p>No doctors available.</p>{% endif %}
+        </div>
+    </div>
+    <div class="logout"><a class="logoutbutton" href="{% url 'home' %}">Logout</a></div>
+</body>
+</html>

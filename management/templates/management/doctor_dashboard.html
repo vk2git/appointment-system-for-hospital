@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head><title>Doctor Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_dashboard.css' %}"><link rel="stylesheet" type="text/css" href="{% static 'css/style_doctor_dashboard.css' %}">
+</head>
+<body>
+    <h1>Welcome, Dr. {{ request.user.first_name }}</h1>
+    <div class="appointment">
+        <h2>Booked Appointments</h2>
+        {% if appointments %}
+            <ul>
+                {% for appointment in appointments %}
+                <div class="listbox">
+                    <li style="margin-bottom: 20px;" class="{% if appointment.completed %}completed{% endif %}">
+                        {{ appointment.user.first_name }} booked an appointment with you at {{ appointment.time_slot }} , {{ appointment.date }}
+                    </li>
+                    <form method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="appointment_id" value="{{ appointment.id }}">
+                        {% if appointment.completed %}
+                            <button type="submit" name="remove_appointment" class="button remove-btn">Remove</button>
+                        {% else %} <div style="margin-left: 10px;">
+                            <button type="submit" name="complete_appointment" class="button completed-btn">Mark as done</button>
+                            <button type="submit" name="cancel_appointment" class="button cancel-btn">Cancel</button></div>
+                        {% endif %}
+                    </form>
+                </div>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No appointments booked yet.</p>
+        {% endif %}
+    </div>
+    <div class="logout"><a class="logoutbutton" href="{% url 'home' %}">Logout</a></div>
+</body>
+</html>

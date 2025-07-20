@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head><title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_dashboard.css' %}">
+</head>
+<body>
+    <h1>Welcome, {{ request.user.first_name }}!</h1>
+    <div class="container">
+        <div class="booking">
+            <h2>Book an Appointment</h2>
+            <form method="post" id="booking-form" action="{% url 'dashboard' %}">
+                {% csrf_token %}
+                <div class="form-section">
+                    <label for="doctor">Select Doctor:</label>
+                    <select name="doctor" id="doctor" required>
+                        <option value="">-- Select Doctor --</option>
+                        {% for doctor in doctors %}
+                        <option value="{{ doctor.id }}">
+                            {{ doctor.user.first_name }} {{ doctor.user.last_name }} ({{ doctor.specialization }})
+                        </option>
+                        {% endfor %}
+                    </select><br><br>
+                </div>
+                <div class="form-section">
+                    <label for="date">Select Date:</label>
+                    <input type="date" name="date" id="date" required><br>
+                    <div id="date-error" style="color: red;"></div><br>
+                </div>
+                <div class="form-section">
+                    <label>Available Time Slots:</label>
+                    <div id="time-slot-box" class="time-slot-container">
+                    </div>
+                    <input type="hidden" name="time_slot" id="time_slot" required>
+                </div>
+                <br>
+                <button class="book" type="submit" name="book_appointment">Book Appointment</button>
+            </form>
+        </div>
+        <div class="appointment">
+            <h2>Your Appointments</h2>
+            {% if appointments %}
+                <ul>
+                    {% for appointment in appointments %}
+                    <li>
+                        Appointment with 
+                        {{ appointment.doctor.user.first_name }} {{ appointment.doctor.user.last_name }} 
+                        on {{ appointment.date }} at {{ appointment.time_slot }}
+                        <form method="post" action="{% url 'dashboard' %}" style="display: inline;">
+                            {% csrf_token %}
+                            <input type="hidden" name="appointment_id" value="{{ appointment.id }}">
+                            <button class="cancel" type="submit" name="cancel_appointment">Cancel</button>
+                        </form>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>You have no booked appointments.</p>
+            {% endif %}
+        </div>
+    </div>
+    <br>
+    <div class="logout">
+        <a class="logoutbutton" href="{% url 'logout' %}">Logout</a>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

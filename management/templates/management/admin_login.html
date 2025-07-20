@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_user_login.css' %}">
+</head>
+<body>
+    <h1>Admin Login</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">Login</button>
+    </form>
+    <br>
+    <p>
+        <a class="backtohome" href="{% url 'user_login' %}">Back to User Login</a>
+        <a class="backtohome" href="{% url 'home' %}">Back to home page</a>
+    </p>
+    
+</body>
+</html>
