@@ -1,4 +1,4 @@
-# appointment-system-for-hospital
+# Appointment-system-for-hospital
 ## Overview
 This project is a Django-based Hospital Appointment Management System that allows patients to book appointments, view doctors, and manage schedules efficiently for small to medium-sized clinics/hospitals.
 
@@ -16,6 +16,12 @@ This project is a Django-based Hospital Appointment Management System that allow
 - Database: SQLite (can be swapped with PostgreSQL/MySQL in production)
 
 ## Setup Instructions
+Note: - Generate a Django Secret Key: You can use an online generator or run the following Python command:
+	```
+	python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+	```
+ Paste the code in `SECRET KEY` under settings.py
+ 
 1. Clone the repository:
 ```
 git clone https://github.com/vk2git/appointment-system-for-hospital.git
